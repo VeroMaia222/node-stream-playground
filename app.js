@@ -2,18 +2,19 @@
 /**
  * Module dependencies.
  */
+import * as express from "express"
+import * as http from "https"
+import * as path from "path"
 
-var express = require("express");
-var http = require("http");
-var path = require("path");
+const app = express ()
 
-var app = express();
+const settings = {
+    port: process.env.PORT || 3000
+}
 
-var settings = {
-    port: process.env.PORT || 8945
-};
+import * as routes from "./routes"
 
-var routes = require("./routes")(settings);
+//const routes = require("./routes")(settings);
 
 // all environments
 app.set("port", settings.port);
